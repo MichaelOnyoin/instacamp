@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Like extends Model
 {
     //
-    protected $connection = 'mongodb';
+    protected $connection = 'mariadb';
     protected $table = 'likes';
 
     protected $fillable = [

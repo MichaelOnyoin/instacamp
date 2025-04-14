@@ -3,10 +3,12 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use MongoDB\Laravel\Auth\User as Authenticatable;
+//use MongoDB\Laravel\Auth\User as Authenticatable;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-//use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
@@ -18,7 +20,8 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $connection = 'mongodb';
+    //protected $connection = 'mongodb';
+    protected $connection = 'mariadb';
     protected $table = 'users';
     protected $fillable = [
         'name',
@@ -57,7 +60,7 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
     
-    public function likes(): HasMany
+    public function likes()
     {
         return $this->hasMany(Like::class);
     }
