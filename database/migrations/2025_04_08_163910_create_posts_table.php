@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('post_id');
             $table->string('caption');
             $table->string('image_path')->nullable();
-            $table->id('user_id');
             $table->string('video_path')->nullable();
             $table->timestamps();
         });
